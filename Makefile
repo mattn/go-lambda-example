@@ -5,14 +5,14 @@ build/bin/app: main.go
 
 .PHONY: init plan apply destroy
 
-init: main.tf
+init: build main.tf
 	terraform init
 
-plan:
+plan: build main.tf
 	terraform plan
 
-apply:
+apply: build main.tf
 	terraform apply --auto-approve
 
-destroy:
+destroy: build main.tf
 	terraform destroy --auto-approve
